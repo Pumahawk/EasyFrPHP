@@ -13,12 +13,13 @@ class Middleware {
 	public function __construct($funct,$data = null, Middleware $next = null){
 		$this -> funct = $funct;
 		$this -> next = $next;
+		$this -> data = $data;
 	}
 	
-	function exec(){
-		if($this -> next != null){
-			$f = $this -> next -> funct;
-			$f($this -> data);
+	function exec($next){
+		if($next -> next != null){
+			$f = $next -> next -> funct;
+			$f($this -> data, $next -> next);
 		}
 	}
 

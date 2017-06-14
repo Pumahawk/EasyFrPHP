@@ -14,19 +14,26 @@ class Router {
   public function run($url) {
     $data = $this -> routerSet -> match($url);
     if(isset($data['_controller'], $data['_action'])) {
-      if(isset($data['middleware'])){
 		$controller = $data['_controller'].'Controller';
 		$action = $data['_action'].'Action';
-		
+	
 		$ctr = new $controller;
-		$finF = $ctr -> $action;
-      	$middle = Middleware::readConfigFile();
-      	array_reverse($middle);
-      	$middlewareList = new Middleware($finF);
-      	foreach($middle as $funct)
-      		$middlewareList = new Middleware($funct, $middlewareList);
-      	$middlewareList -> exec($data['matches']);
-      }
+		$finF = function() use ($ctr, $action, $data){
+			$ctr -> $action($data);
+		};
+      	if(isset($data['middleware'])){
+		  	$middle = Middleware::readConfigFile();
+		  	$middle = array_reverse($middle);
+		  	$middlewareList = (new Middleware($finF));
+		  	foreach($middle as $funct){
+		  		$p = new Middleware($funct, $data['matches'], $middlewareList);
+		  		$middlewareList = $p;
+		  	}
+		  	$f = $middlewareList -> funct;
+		  	$f($middlewareList);
+      	}
+      	else
+      		$finF();
       return true;
     }
     else {
