@@ -15,15 +15,18 @@ class Router {
     $data = $this -> routerSet -> match($url);
     if(isset($data['_controller'], $data['_action'])) {
       if(isset($data['middleware'])){
+		$controller = $data['_controller'].'Controller';
+		$action = $data['_action'].'Action';
+		
+		$ctr = new $controller;
+		$finF = $ctr -> $action;
       	$middle = Middleware::readConfigFile();
-      	foreach($data['middleware'] as $name) {
-      		$middle[$name]();
-      	}
+      	array_reverse($middle);
+      	$middlewareList = new Middleware($finF);
+      	foreach($middle as $funct)
+      		$middlewareList = new Middleware($funct, $middlewareList);
+      	$middlewareList -> exec($data['matches']);
       }
-      $controller = $data['_controller'].'Controller';
-      $action = $data['_action'].'Action';
-      $ctr = new $controller;
-      $ctr -> $action($data['matches']);
       return true;
     }
     else {
