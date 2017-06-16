@@ -19,7 +19,7 @@ class Router {
 	
 		$ctr = new $controller;
 		$finF = function() use ($ctr, $action, $data){
-			$ctr -> $action($data);
+			$ctr -> $action($data['matches']);
 		};
       	if(isset($data['middleware'])){
 		  	$middle = Middleware::readConfigFile();
