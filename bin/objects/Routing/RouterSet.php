@@ -11,9 +11,12 @@ class RouterSet {
     $this ->routeList[] = $route;
   }
 
-  public function addArray($routeArray) {
-    foreach ($routeArray as $route) {
-      $this -> add(new Route($route['name'], $route['pattern'], $route['options']));
+  public function addArray($routeArray, $basePattern = '') {
+    foreach ($routeArray as $k => $route) {
+    	if(isset($route['group']))
+    		$this -> addArray($route,$route['group']);
+    	if($k != 'group')
+      		$this -> add(new Route($route['name'], $basePattern.$route['pattern'], $route['options']));
     }
   }
 
