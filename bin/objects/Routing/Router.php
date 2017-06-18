@@ -22,15 +22,16 @@ class Router {
 			$ctr -> $action($data['matches']);
 		};
       	if(isset($data['middleware'])){
-		  	$middle = Middleware::readConfigFile();
+		  	$middleL = Middleware::readConfigFile();
+		  	$middle = $data['middleware'];
 		  	$middle = array_reverse($middle);
 		  	$middlewareList = (new Middleware($finF));
 		  	foreach($middle as $funct){
-		  		$p = new Middleware($funct, $data['matches'], $middlewareList);
+		  		$p = new Middleware($middleL[$funct], $data['matches'], $middlewareList);
 		  		$middlewareList = $p;
 		  	}
 		  	$f = $middlewareList -> funct;
-		  	$f($middlewareList);
+		  	$f($data, $middlewareList);
       	}
       	else
       		$finF();
