@@ -26,6 +26,6 @@ class DBManager{
 	}
 
 	public function makeStatic(){
-		DBManager::$DBManager = $this;
+		DBManager::$PDO = $this;
 	}
 }
