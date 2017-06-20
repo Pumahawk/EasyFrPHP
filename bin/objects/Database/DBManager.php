@@ -6,7 +6,7 @@ use Option\Option;
 
 class DBManager{
 
-	static public $dbManager;
+	static public $PDO;
 
 	public $pdo;
 
