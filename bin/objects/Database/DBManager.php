@@ -5,12 +5,13 @@ namespace Database;
 use Option\Option;
 
 class DBManager{
+
+	static public $dbManager;
+
 	public $pdo;
-	
-	function __construct(){
-		$opt = new Option();
-		$config = $opt -> readOptions('database');
-		
+
+	function __construct($config){
+
 		$dsn = $config['type'].':dbname='.$config['database'].';host='.$config['host'];
 		$user = $config['username'];
 		$password = $config['password'];
@@ -22,5 +23,9 @@ class DBManager{
 			echo 'Connection failed: ' . $e->getMessage();
 			$this -> pdo = false;
 		}
+	}
+
+	public function makeStatic(){
+		DBManager::$DBManager = $this;
 	}
 }
