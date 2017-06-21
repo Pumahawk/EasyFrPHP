@@ -17,9 +17,9 @@ class Middleware {
 	}
 
 	function exec(){
-		if($this -> next -> next != null){
-			$f = $this -> next -> next -> funct;
-			$f($this -> data, $this -> next -> next);
+		if($this -> next != null){
+			$f = $this -> next -> funct;
+			$f($this -> data, $this -> next);
 		}
 	}
 
