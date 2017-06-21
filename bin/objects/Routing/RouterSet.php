@@ -13,18 +13,19 @@ class RouterSet {
 
   public function addArray($routeArray, $basePattern = '', $middleware = array()) {
     foreach ($routeArray as $k => $route) {
-  	$mid2 = array();
-    	if(isset($route['group']))
+  	$middlewareSupport = array();
+    	if(isset($route['group'])){
     		$this -> addArray($route,$basePattern.$route['group'], (isset($route['middleware'])) ? array_merge($route['middleware'], $middleware) : $middleware);
-    	if(($k != 'group' && $k != 'middleware') || $k == 0){
+      }
+      if(($k != 'group' && $k != 'middleware') || $k == 0){
     		if(isset($route['options']['middleware'])){
-				$mid2 = $route['options']['middleware'];
+				      $middlewareSupport = $route['options']['middleware'];
     		}
-    		
+
     		if(isset($route['options'])){
-    			$route['options']['middleware'] = array_merge($middleware,$mid2);
-      		$this -> add($r = new Route($route['name'], $basePattern.$route['pattern'], $route['options']));
-    	}
+    			$route['options']['middleware'] = array_merge($middleware,$middlewareSupport);
+      		$this -> add(new Route($route['name'], $basePattern.$route['pattern'], $route['options']));
+    	  }
     	}
     }
   }

@@ -14,27 +14,27 @@ class Router {
   public function run($url) {
     $data = $this -> routerSet -> match($url);
     if(isset($data['_controller'], $data['_action'])) {
-		$controller = $data['_controller'].'Controller';
-		$action = $data['_action'].'Action';
-	
-		$ctr = new $controller;
-		$finF = function() use ($ctr, $action, $data){
-			$ctr -> $action($data['matches']);
-		};
-      	if(isset($data['middleware'])){
-		  	$middleL = Middleware::readConfigFile();
-		  	$middle = $data['middleware'];
-		  	$middle = array_reverse($middle);
-		  	$middlewareList = (new Middleware($finF));
-		  	foreach($middle as $funct){
-		  		$p = new Middleware($middleL[$funct], $data['matches'], $middlewareList);
-		  		$middlewareList = $p;
-		  	}
-		  	$f = $middlewareList -> funct;
-		  	$f($data, $middlewareList);
-      	}
-      	else
-      		$finF();
+  		$controller = $data['_controller'].'Controller';
+  		$action = $data['_action'].'Action';
+
+  		$controllerObject = new $controller;
+  		$finF = function() use ($controllerObject, $action, $data){
+  			$controllerObject -> $action($data['matches']);
+  		};
+    	if(isset($data['middleware'])){
+  	  	$middlewareConfig = Middleware::readConfigFile();
+  	  	$middle = $data['middleware'];
+  	  	$middle = array_reverse($middle);
+  	  	$middlewareList = (new Middleware($finF));
+  	  	foreach($middle as $funct){
+  	  		$parking = new Middleware($middlewareConfig[$funct], $data['matches'], $middlewareList);
+  	  		$middlewareList = $parking;
+  	  	}
+  	  	$f = $middlewareList -> funct;
+  	  	$f($data, $middlewareList);
+    	}
+    	else
+    		$finF();
       return true;
     }
     else {
