@@ -25,7 +25,7 @@ class View {
 		$this -> render($this -> baseTemplate, $data);
 	}
 	
-	function getText(...$option) {
+	function getText(...$options) {
 	    return $this -> pathLoader -> getPath($options);
 	}
 	
