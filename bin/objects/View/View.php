@@ -9,9 +9,11 @@ class View {
 	public $baseTemplate = 'base';
 	
 	public $centerPage;
+	public $pathLoader;
 	
-	function __construct($center = 'home'){
+	function __construct($center = 'home', $pathLoader = null){
 		$this -> centerPage = $center;
+		$this -> pathLoader = $pathLoader;
 	}
 	
 	function render($name, $data = null){
@@ -21,6 +23,10 @@ class View {
 	
 	function show($data = null){
 		$this -> render($this -> baseTemplate, $data);
+	}
+	
+	function getText(...$options) {
+	    return $this -> pathLoader -> getPath($options);
 	}
 	
 }

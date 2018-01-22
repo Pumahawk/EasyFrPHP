@@ -2,16 +2,28 @@
 
 namespace Database;
 
-use Option\Option;
+use PDOException;
 
 class DBManager{
 
-	static public $PDO;
+    static public $PDO;
+    protected $baseDirectoryLoader;
 
 	public $pdo;
 
-	function __construct($config){
+    public function getBaseDirectoryLoader()
+    {
+        return $this->baseDirectoryLoader;
+    }
+    public function setBaseDirectoryLoader($baseDirectoryLoader)
+    {
+        $this->baseDirectoryLoader = $baseDirectoryLoader;
+    }
 
+    function __construct($config, $queryDirectory = 'app/query'){
+	    
+	    $this -> baseDirectoryLoader = $queryDirectory;
+	    
 		$dsn = $config['type'].':dbname='.$config['database'].';host='.$config['host'];
 		$user = $config['username'];
 		$password = $config['password'];
@@ -27,5 +39,8 @@ class DBManager{
 
 	public function makeStatic(){
 		DBManager::$PDO = $this;
+	}
+	static function loadQuery($query){
+	    return file_get_contents($this -> baseDirectoryLoader .'/'.$query.'.sql', true);
 	}
 }

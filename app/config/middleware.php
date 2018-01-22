@@ -1,9 +1,9 @@
 <?php
 	$middleware = [
 	/*
-		'nameMiddleware' => function($d){
+		'nameMiddleware' => function($data, $f){
 			//code before
-			//$d -> exec($d); //exec request
+			$f -> exec();
 			//code after
 		}
 	*/
