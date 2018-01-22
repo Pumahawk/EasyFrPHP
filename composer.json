@@ -1,0 +1,7 @@
+{
+    "name": "pumahawk/easyfrphp",
+    "description": "A minimal php framework",
+    "require": {
+        "php": "^7.0"
+    }
+}
