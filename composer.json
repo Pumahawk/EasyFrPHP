@@ -3,5 +3,10 @@
     "description": "A minimal php framework",
     "require": {
         "php": "^7.0"
+    },
+    "autoload": {
+      "psr-4": {
+        "EasyFrPHP\\": "bin/object/EasyFrPHP/"
+      }
     }
 }
