@@ -1,7 +1,7 @@
 <?php
 use Routing\Router;
 
-require('../../bin/init.php');
+require(__DIR__ .'/../../bin/init.php');
 
 $request = (isset($_SERVER['REQUEST_URI'])) ? explode('?', $_SERVER['REQUEST_URI'])[0] : '/';
 
