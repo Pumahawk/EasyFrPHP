@@ -1,6 +1,6 @@
 <?php
 
-namespace Database;
+namespace EasyFrPHP\Database;
 
 use PDOException;
 
@@ -21,9 +21,9 @@ class DBManager{
     }
 
     function __construct($config, $queryDirectory = 'app/query'){
-	    
+
 	    $this -> baseDirectoryLoader = $queryDirectory;
-	    
+
 		$dsn = $config['type'].':dbname='.$config['database'].';host='.$config['host'];
 		$user = $config['username'];
 		$password = $config['password'];

@@ -1,7 +1,7 @@
 <?php
 
-namespace Base;
+namespace EasyFrPHP\Base;
 
 class BaseController{
-	
+
 }

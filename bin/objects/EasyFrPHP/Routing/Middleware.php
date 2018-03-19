@@ -1,8 +1,8 @@
 <?php
 
-namespace Routing;
+namespace EasyFrPHP\Routing;
 
-use Option\Option;
+use EasyFrPHP\Option\Option;
 
 class Middleware {
 

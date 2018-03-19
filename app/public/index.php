@@ -1,5 +1,5 @@
 <?php
-use Routing\Router;
+use EasyFrPHP\Routing\Router;
 
 require(__DIR__ .'/../../bin/init.php');
 

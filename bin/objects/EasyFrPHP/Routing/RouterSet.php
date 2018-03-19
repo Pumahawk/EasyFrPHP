@@ -1,8 +1,8 @@
 <?php
 
-namespace Routing;
+namespace EasyFrPHP\Routing;
 
-use Routing\Route;
+use EasyFrPHP\Routing\Route;
 
 class RouterSet {
   public $routeList = array();

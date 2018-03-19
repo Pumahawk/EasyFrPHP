@@ -1,6 +1,6 @@
 <?php
 
-namespace Routing;
+namespace EasyFrPHP\Routing;
 
 class Router {
   public $routerSet;
