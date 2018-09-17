@@ -2,7 +2,8 @@
     "name": "pumahawk/easyfrphp",
     "description": "A minimal php framework",
     "require": {
-        "php": "^7.0"
+        "php": "^7.0",
+        "phpunit/phpunit": "^7"
     },
     "autoload": {
       "psr-4": {
