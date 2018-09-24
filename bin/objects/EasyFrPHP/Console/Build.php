@@ -27,6 +27,6 @@ class Build extends Command
     {
       $optReader = new Option();
       $opt = $optReader -> readOptions('dev/base-build');
-      shell_exec('zip -r '.$opt['name'].' '.join(' ', $opt['path']).' -x '.join(' ', $opt['exclude']));
+      passthru('zip -r '.$opt['name'].' '.join(' ', $opt['path']).' -x '.join(' ', $opt['exclude']));
     }
 }
