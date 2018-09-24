@@ -32,6 +32,6 @@ class Console extends Command
         "port: ". $opt['port'],
         "document-root: ". $opt['document-root']
       ]);
-      shell_exec('php -S '.$opt['host'].':'.$opt['port'].' -t '.$opt['document-root'].' phpRouterRequest.php');
+      shell_exec('php -S '.$opt['host'].':'.$opt['port'].' -t '.$opt['document-root'].' app/public/phpRouterRequest.php');
     }
 }
