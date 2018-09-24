@@ -4,11 +4,13 @@
 require(__DIR__.'/../vendor/autoload.php');
 
 use EasyFrPHP\Console\Console;
+use EasyFrPHP\Console\Build;
 
 use Symfony\Component\Console\Application;
 
 $application = new Application();
 
 $application->add(new Console());
+$application->add(new Build());
 
 $application->run();
