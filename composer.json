@@ -1,10 +1,22 @@
 {
     "name": "pumahawk/easyfrphp",
     "description": "A minimal php framework",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/Pumahawk/RouterRequest.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/Pumahawk/Temply.git"
+        }
+    ],
     "require": {
         "php": "^7.0",
         "phpunit/phpunit": "^7",
-        "symfony/console": "^4.1"
+        "symfony/console": "^4.1",
+        "pumahawk/routerrequest": "dev-support-easyfrphp",
+        "pumahawk/temply": "dev-support-easyfrphp"
     },
     "autoload": {
       "psr-4": {

@@ -1,6 +1,6 @@
 <?php
 
-use EasyFrPHP\View\View;
+use Temply\View;
 
 class DemoController {
 	public function helloAction() {
