@@ -4,8 +4,85 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a9efe22e033164547d53e25b9933a378",
+    "content-hash": "b9063a54f2c1c5723ba094a5ace94cf1",
     "packages": [
+        {
+            "name": "pumahawk/routerrequest",
+            "version": "dev-support-easyfrphp",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Pumahawk/RouterRequest.git",
+                "reference": "e5b45bafbd1ce2bcb1d04baa7e1959ffc806c8bd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Pumahawk/RouterRequest/zipball/e5b45bafbd1ce2bcb1d04baa7e1959ffc806c8bd",
+                "reference": "e5b45bafbd1ce2bcb1d04baa7e1959ffc806c8bd",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "RouterRequest\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Lorenzo Gandino",
+                    "email": "lorenzoga94@gmail.com"
+                }
+            ],
+            "description": "Simple php library to manage http request",
+            "support": {
+                "source": "https://github.com/Pumahawk/RouterRequest/tree/master",
+                "issues": "https://github.com/Pumahawk/RouterRequest/issues"
+            },
+            "time": "2018-09-25 12:23:33"
+        },
+        {
+            "name": "pumahawk/temply",
+            "version": "dev-support-easyfrphp",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Pumahawk/Temply.git",
+                "reference": "13316f90a7cd0afbe4c0d8b5850ad6de47b4f7eb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Pumahawk/Temply/zipball/13316f90a7cd0afbe4c0d8b5850ad6de47b4f7eb",
+                "reference": "13316f90a7cd0afbe4c0d8b5850ad6de47b4f7eb",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Temply\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Lorenzo Gandino",
+                    "email": "lorenzoga94@gmail.com"
+                }
+            ],
+            "description": "Simple php template engine",
+            "support": {
+                "source": "https://github.com/Pumahawk/Temply/tree/master",
+                "issues": "https://github.com/Pumahawk/Temply/issues"
+            },
+            "time": "2018-09-25 09:04:54"
+        }
+    ],
+    "packages-dev": [
         {
             "name": "doctrine/instantiator",
             "version": "1.1.0",
@@ -760,78 +837,6 @@
                 "xunit"
             ],
             "time": "2018-09-08T15:14:29+00:00"
-        },
-        {
-            "name": "pumahawk/routerrequest",
-            "version": "dev-support-easyfrphp",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Pumahawk/RouterRequest.git",
-                "reference": "029fdd78053e385524a0b00e4d1f657ab65cde03"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Pumahawk/RouterRequest/zipball/029fdd78053e385524a0b00e4d1f657ab65cde03",
-                "reference": "029fdd78053e385524a0b00e4d1f657ab65cde03",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "RouterRequest\\": "src/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Lorenzo Gandino",
-                    "email": "lorenzoga94@gmail.com"
-                }
-            ],
-            "description": "Simple php library to manage http request",
-            "support": {
-                "source": "https://github.com/Pumahawk/RouterRequest/tree/master",
-                "issues": "https://github.com/Pumahawk/RouterRequest/issues"
-            },
-            "time": "2018-09-25 08:47:07"
-        },
-        {
-            "name": "pumahawk/temply",
-            "version": "dev-support-easyfrphp",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Pumahawk/Temply.git",
-                "reference": "13316f90a7cd0afbe4c0d8b5850ad6de47b4f7eb"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Pumahawk/Temply/zipball/13316f90a7cd0afbe4c0d8b5850ad6de47b4f7eb",
-                "reference": "13316f90a7cd0afbe4c0d8b5850ad6de47b4f7eb",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Temply\\": "src/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Lorenzo Gandino",
-                    "email": "lorenzoga94@gmail.com"
-                }
-            ],
-            "description": "Simple php template engine",
-            "support": {
-                "source": "https://github.com/Pumahawk/Temply/tree/master",
-                "issues": "https://github.com/Pumahawk/Temply/issues"
-            },
-            "time": "2018-09-25 09:04:54"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -1614,7 +1619,6 @@
             "time": "2018-01-29T19:49:41+00:00"
         }
     ],
-    "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
